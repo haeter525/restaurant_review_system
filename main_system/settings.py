@@ -20,9 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = (
-    "django-insecure-)zr4(cs%!-+-d)&t+vd8!7(h0cgv4(&2du^x^rp4j+w4%xad62"
-)
+SECRET_KEY = "django-insecure-)zr4(cs%!-+-d)&t+vd8!7(h0cgv4(&2du^x^rp4j+w4%xad62"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,9 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "django_filters",
     "rest_framework.authtoken",
-    "dj_rest_auth",
+    "django_filters",
+    "drf_spectacular",
     "django_extensions",
     "restaurant_review_core",
 ]
@@ -136,15 +134,20 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 REST_FRAMEWORK = {
-    "DEFAULT_FILTER_BACKENDS": [
-        "django_filters.rest_framework.DjangoFilterBackend"
-    ],
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.BasicAuthentication",
-        "rest_framework.authentication.SessionAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "restaurant_review_core.permissions.IsAdminOrReadOnly",
     ],
     "DEFAULT_THROTTLE_RATES": {"anon": "10/hour", "user": "20/hour"},
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Restaurant Review System API",
+    "DESCRIPTION": "The RESTful API documentation of the restaurant review system",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
 }
