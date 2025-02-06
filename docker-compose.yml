@@ -28,10 +28,11 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: postgres
     healthcheck:
-      test: ["CMD", "pg_isready"]
-      interval: 5s
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 1m30s
       timeout: 5s
       retries: 5
+      start_period: 3s
 
 volumes:
   postgres-data:
