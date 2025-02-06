@@ -12,9 +12,6 @@ def create_user_if_not_exist(
         user.save()
 
 
-# Create admin user
-create_user_if_not_exist("admin", "admin", "admin@example.com", is_admin=True)
-
 # Create normal users
 create_user_if_not_exist("user1", "password1", "user1@example.com")
 create_user_if_not_exist("user2", "password2", "user2@example.com")
