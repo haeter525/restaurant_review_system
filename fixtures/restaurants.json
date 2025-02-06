@@ -1,0 +1,20 @@
+[
+    {
+        "model": "restaurant_review_core.restaurant",
+        "pk": 1,
+        "fields": {
+            "name": "First Restaurant",
+            "address": "Taipei",
+            "total_score": 10
+        }
+    },
+    {
+        "model": "restaurant_review_core.restaurant",
+        "pk": 2,
+        "fields": {
+            "name": "Second Restaurant",
+            "address": "Online",
+            "total_score": 5
+        }
+    }
+]

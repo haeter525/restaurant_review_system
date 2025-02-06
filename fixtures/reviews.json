@@ -1,0 +1,32 @@
+[
+    {
+        "model": "restaurant_review_core.review",
+        "pk": 1,
+        "fields": {
+            "restaurant": 1,
+            "author": 2,
+            "text": "User 1 commented on the first restaurant.",
+            "score": 10
+        }
+    },
+    {
+        "model": "restaurant_review_core.review",
+        "pk": 2,
+        "fields": {
+            "restaurant": 2,
+            "author": 2,
+            "text": "User 1 commented on the second restaurant.",
+            "score": 0
+        }
+    },
+    {
+        "model": "restaurant_review_core.review",
+        "pk": 3,
+        "fields": {
+            "restaurant": 2,
+            "author": 3,
+            "text": "User 2 commented on the second restaurant.",
+            "score": 5
+        }
+    }
+]
