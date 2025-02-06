@@ -19,7 +19,7 @@ docker-compose up
 4. Visit http://localhost:8000 for the API documentation.
 
 
-## API Endpoints
+## Features
 
 + Create restaurant - `POST /api/restaurant`
 
@@ -35,7 +35,7 @@ docker-compose up
 
 + List reviews of certain user - `GET /api/review?author={username}`
 
-Please visit the API documentation for more details and examples.
+Please visit the API documentation for all API endpoints and examples.
 
 ## Authentication
 The system defines 3 user roles: **admin user**, **login user**, and **anonymous users**.
