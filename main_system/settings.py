@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
+import socket
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,12 +23,12 @@ FIXTURE_DIRS = [BASE_DIR / "fixtures"]
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-)zr4(cs%!-+-d)&t+vd8!7(h0cgv4(&2du^x^rp4j+w4%xad62"
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [socket.gethostbyname('localhost')]
 
 
 # Application definition
@@ -76,6 +78,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "main_system.wsgi.application"
 
+CONN_MAX_AGE = None
+CONN_HEALTH_CHECKS = True
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -83,10 +87,9 @@ WSGI_APPLICATION = "main_system.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        # TODO - Change the name, user, password, and host.
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "postgres",  # TODO - Hide the secret
+        "NAME": os.environ["POSTGRES_DB"],
+        "USER": os.environ["POSTGRES_USER"],
+        "PASSWORD": os.environ["POSTGRES_PASSWORD"],
         "HOST": "db",
         "PORT": "5432",
     }

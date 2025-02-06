@@ -6,6 +6,15 @@ services:
       context: ..
       dockerfile: .devcontainer/Dockerfile
 
+    environment:
+      DJANGO_SUPERUSER_USERNAME: admin
+      DJANGO_SUPERUSER_PASSWORD: admin
+      DJANGO_SUPERUSER_EMAIL: admin@example.com
+      SECRET_KEY: j&7!JK*/]>sUmBa0j@m$U4@m{'!;k(hsxBu}Utv\4@\"+xH!~Qcc=PWI*]%SOZi&A
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+
     volumes:
       - ../..:/workspaces:cached
 

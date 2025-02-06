@@ -6,10 +6,15 @@ services:
       DJANGO_SUPERUSER_USERNAME: admin
       DJANGO_SUPERUSER_PASSWORD: admin
       DJANGO_SUPERUSER_EMAIL: admin@example.com
-
+      SECRET_KEY: j&7!JK*/]>sUmBa0j@m$U4@m{'!;k(hsxBu}Utv\4@\"+xH!~Qcc=PWI*]%SOZi&A
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - 8000:8000
-
+    depends_on:
+      db:
+        condition: service_healthy
     post_start:
       - command: sh setup.sh # Initial database
 
@@ -22,6 +27,11 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   postgres-data:
