@@ -36,3 +36,28 @@ docker-compose up
 + List reviews of certain user - `GET /api/review?author={username}`
 
 Please visit the API documentation for more details and examples.
+
+## Authentication
+The system defines 3 user roles: **admin user**, **login user**, and **anonymous users**.
+
++ **Admin users** can create, edit, and delete restaurant/reviews.
++ **Login users** can create, edit, and delete their own reviews.
++ **All users, including anonymous users**, can list or search restaurants and reviews.
+
+Therefore, the system uses HTTP Basic Auth to authenticate users and verify their permissions before processing requests.
+
+## Testing
+
+To facilitate quick testing of API endpoints, the system is pre-configured with one admin user, two login users, and a predefined set of restaurants and reviews.
+
+The usernames and passwords for the admin and login users are as follows:
+
++ Admin
+    + username: admin
+    + password: admin
++ User 1
+    + username: user1
+    + password: password1
++ User 2
+    + username: user2
+    + password: password2
