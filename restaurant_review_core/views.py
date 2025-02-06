@@ -5,7 +5,6 @@ from drf_spectacular.utils import (
     extend_schema_view,
     extend_schema,
     OpenApiParameter,
-    OpenApiExample,
 )
 from restaurant_review_core.models import Restaurant, Review
 from restaurant_review_core.serializers import (
