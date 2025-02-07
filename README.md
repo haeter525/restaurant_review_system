@@ -16,7 +16,7 @@ git clone https://github.com/haeter525/restaurant_review_system
 docker-compose up
 ```
 
-4. Visit http://localhost:8000 for the API documentation.
+4. Visit http://127.0.0.1:8000 for the API documentation.
 
 
 ## Features
